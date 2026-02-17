@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Shipment Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            text-align: center;
+            color: white;
+            padding: 50px;
+        }
+        .box {
+            background: white;
+            color: black;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: auto;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📦 Smart Shipment Tracker</h1>
+
+    <div class="box">
+        <h3>Enter Tracking Number</h3>
+        <input type="text" id="trackingNumber" placeholder="Enter Tracking ID">
+        <br>
+        <button onclick="checkStatus()">Track Shipment</button>
+        <div class="result" id="result"></div>
+    </div>
+
+<script>
+function checkStatus() {
+    var number = document.getElementById("trackingNumber").value;
+    var result = document.getElementById("result");
+
+    if(number === "") {
+        result.innerHTML = "⚠ Please enter tracking number.";
+        result.style.color = "red";
+    }
+    else if(number === "WS123") {
+        result.innerHTML = "✅ Shipment Dispatched - Expected Delivery: 2 Days";
+        result.style.color = "green";
+    }
+    else {
+        result.innerHTML = "⏳ Shipment Processing...";
+        result.style.color = "orange";
+    }
+}
+</script>
+
+</body>
+</html>
